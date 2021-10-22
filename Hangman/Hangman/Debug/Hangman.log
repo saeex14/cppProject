@@ -1,0 +1,8 @@
+﻿  hangman.cpp
+C:\Users\novin\Desktop\cpp\cppProject\Hangman\Hangman\hangman.cpp(12,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\novin\Desktop\cpp\cppProject\Hangman\Hangman\hangman.cpp(31,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\novin\Desktop\cpp\cppProject\Hangman\Hangman\hangman.cpp(32,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\novin\Desktop\cpp\cppProject\Hangman\Hangman\hangman.cpp(47,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\novin\Desktop\cpp\cppProject\Hangman\Hangman\hangman.cpp(66,3): warning C4551: function call missing argument list
+C:\Users\novin\Desktop\cpp\cppProject\Hangman\Hangman\hangman.cpp(149,20): warning C4018: '<': signed/unsigned mismatch
+  Hangman.vcxproj -> C:\Users\novin\Desktop\cpp\cppProject\Hangman\Debug\Hangman.exe
