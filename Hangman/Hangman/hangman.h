@@ -1,14 +1,18 @@
 #pragma once
 #include <iostream>
 #include <vector>
+#include <time.h>
+#include <cstdlib>
+#define clear system("CLS")
+
 using namespace std;
 
 class hangman
 {
 private:
 	string Word;
-	vector<char> guess;
-	bool win;
+	string guess = "";
+	bool win = false;
 	int wrongAns = 0;
 public:
 	hangman();
@@ -19,12 +23,14 @@ public:
 	void showhangman();
 	void showGuess();
 	void Ditals();
+	void guessAll();
 	//getter
 	string getWord() { return Word;}
 	char getGuess(int i) { return guess[i];}
+	bool getWin() { return win; }
 	//setter
 	void setWord(string temp) { Word = temp; }
-	void setGuess(char input) { guess.push_back(input); }
+	void setGuess(char input) { guess +=input; }
 
 
 

@@ -1,6 +1,7 @@
 #include "hangman.h"
-#include <time.h>
-vector<string>  Words {"subway", "lucky", "syndrome", "apple", "orange", "wood", "computer", "god" , "clothes", "winter", "spring"};
+vector<string>  Words{ "subway", "lucky", "syndrome", "apple", "orange", "wood", "computer", "god" , "clothes", "winter", "spring" };
+
+
 hangman::hangman() {
 	
 	//choose randome words 
@@ -9,19 +10,23 @@ hangman::hangman() {
 	int chose = rand() % 10;
 	
 	setWord(Words[chose]);
-	for (int i = 0; i < Word.size(); i++)
-		setGuess(' ');
-	
-	//Stating the game 
-	while (!win)
-	{
-		char guess;
-		showWord();
-		Ditals();
-		showhangman();
-		cout << "enter your guess char:\t";
-		cin >> guess;
-		setGuess(guess);
+
+}
+void hangman::guessAll() {
+	char select;
+	cout << "Do you want guess Word? y/n \t";
+	cin >> select;
+	if (select == 'y' || select == 'Y') {
+		string GuessWord;
+		cout << "Enter your guess:\t";
+		cin >> GuessWord;
+		if (GuessWord == Word) {
+			cout << "\t\tyou Win " << endl;
+			PlayAgain();
+		}
+	}
+	else {
+		return;
 	}
 }
 //options of game
@@ -31,7 +36,7 @@ void hangman::showWord() {
 	for (int i = 0; i < Word.size(); i++) {
 		for (int j = 0; j < guess.size(); j++) {
 			
-			Word[i] == guess[i] ? temp += Word[i]: "";
+			//Word[i] == guess[i] ? temp += Word[i]: "";
 
 		}
 		temp += "*";
@@ -40,8 +45,11 @@ void hangman::showWord() {
 	cout << "Words:\t " << temp << endl;
 }
 void hangman::checkGame( string temp) {
-	if (wrongAns == 8) {
+	if (wrongAns == 9) {
+
 		cout << "You Lost" << endl;
+		PlayAgain();
+
 	}else {
 
 		for (int i = 0; i < temp.size(); i++) {
@@ -49,8 +57,10 @@ void hangman::checkGame( string temp) {
 		}
 		
 		if (win) {
+
 			cout << "you Win" << endl;
 			PlayAgain();
+
 		}
 
 	}
@@ -60,11 +70,11 @@ void hangman::PlayAgain() {
 	cout << "Do you Want Play again Game? y/n" << endl;
 	cin >> select;
 	if (select == 'y' || select == 'Y') {
+		clear;
 		hangman temp;
 	}
-	else {
-		exit;
-	}
+		exit(0);
+
 }
 void hangman::showhangman() {
 	if (wrongAns == 1) {
@@ -129,7 +139,7 @@ void hangman::showhangman() {
 		cout << "|             ( )" << endl;
 		cout << "|              | " << endl;
 		cout << "|             /|\\" << endl;
-		cout << "|             /|\\" << endl;
+		cout << "|             / \\" << endl;
 		cout << "/\\" << endl;
 	}
 	if (wrongAns == 9) {
@@ -139,7 +149,7 @@ void hangman::showhangman() {
 		cout << "|             ( )" << endl;
 		cout << "|              | " << endl;
 		cout << "|             /|\\" << endl;
-		cout << "|             /|\\" << endl;
+		cout << "|             / \\" << endl;
 		cout << "/\\                         Hang man is DEAD" << endl;
 	}
 }
@@ -148,21 +158,15 @@ void hangman::showGuess() {
 	
 	for (int i = 0; i < guess.size(); i++) {
 		
-		cout << guess.at(i);
-		if (i = guess.size() - 1) {
-	
-			cout << endl;
-		
-		}else{
-		
+		cout << guess[i];
 			cout << ",";
 		
-		}
 	}
+	cout << endl;
 }
 void hangman::Ditals() {
 	cout << "----------------------------------" << endl;
-	cout << "guessed already:\t" << guess.size() << endl;
+	showGuess();
 	cout << "wrong Answer:\t" << wrongAns << endl;
 	cout << "rest Guess:\t" << 9 - wrongAns << endl;
 	cout << "----------------------------------" << endl;
