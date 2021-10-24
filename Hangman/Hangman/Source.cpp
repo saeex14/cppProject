@@ -11,7 +11,6 @@ int main() {
 		game.showWord();
 		game.Ditals();
 		game.showhangman();
-		//game.guessAll();
 		char guess;
 		cout << "enter your guess char:\t";
 		cin >> guess;

@@ -1,1 +1,9 @@
-﻿  Hangman.vcxproj -> C:\Users\novin\Desktop\cpp\cppProject\Hangman\Debug\Hangman.exe
+﻿  Source.cpp
+  hangman.cpp
+C:\Users\novin\Desktop\cpp\cppProject\Hangman\Hangman\hangman.cpp(26,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\novin\Desktop\cpp\cppProject\Hangman\Hangman\hangman.cpp(29,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\novin\Desktop\cpp\cppProject\Hangman\Hangman\hangman.cpp(30,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\novin\Desktop\cpp\cppProject\Hangman\Hangman\hangman.cpp(51,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\novin\Desktop\cpp\cppProject\Hangman\Hangman\hangman.cpp(160,20): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+  Hangman.vcxproj -> C:\Users\novin\Desktop\cpp\cppProject\Hangman\Debug\Hangman.exe

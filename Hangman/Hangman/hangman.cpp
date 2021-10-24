@@ -1,45 +1,42 @@
 #include "hangman.h"
+
+//source of my words that chose random 
 vector<string>  Words{ "subway", "lucky", "syndrome", "apple", "orange", "wood", "computer", "god" , "clothes", "winter", "spring" };
 
 
 hangman::hangman() {
 	
+	randomWord();
+
+}
+void hangman::randomWord() {
 	//choose randome words 
 	srand((unsigned)time(0));
 
 	int chose = rand() % 10;
-	
+
 	setWord(Words[chose]);
 
 }
-void hangman::guessAll() {
-	char select;
-	cout << "Do you want guess Word? y/n \t";
-	cin >> select;
-	if (select == 'y' || select == 'Y') {
-		string GuessWord;
-		cout << "Enter your guess:\t";
-		cin >> GuessWord;
-		if (GuessWord == Word) {
-			cout << "\t\tyou Win " << endl;
-			PlayAgain();
-		}
-	}
-	else {
-		return;
-	}
-}
 //options of game
 void hangman::showWord() {
+	
 	string temp;
+	wrongAns = guess.size();
+
+	for (int i = 0; i < Word.size(); i++)
+		temp += "*";
 
 	for (int i = 0; i < Word.size(); i++) {
 		for (int j = 0; j < guess.size(); j++) {
 			
-			//Word[i] == guess[i] ? temp += Word[i]: "";
-
+			if (Word[i] == guess[j])
+			{
+				temp[i] = Word[i] ;
+				wrongAns--;
+				break;
+			}
 		}
-		temp += "*";
 	}
 	checkGame(temp);
 	cout << "Words:\t " << temp << endl;
@@ -59,6 +56,7 @@ void hangman::checkGame( string temp) {
 		if (win) {
 
 			cout << "you Win" << endl;
+			win = true;
 			PlayAgain();
 
 		}
@@ -70,8 +68,12 @@ void hangman::PlayAgain() {
 	cout << "Do you Want Play again Game? y/n" << endl;
 	cin >> select;
 	if (select == 'y' || select == 'Y') {
+		randomWord();
+		guess = "";
+	    win = false;
+	    wrongAns = 0;
 		clear;
-		hangman temp;
+		return; 
 	}
 		exit(0);
 
