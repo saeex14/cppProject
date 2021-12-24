@@ -18,7 +18,6 @@ int xOr(vector<int>a, int r) {
     }
     return sum;
 }
-
 int main() {
 
     int n, q;
@@ -27,6 +26,7 @@ int main() {
     vector<int>a = get(n);
     vector<int> r = get(q);
     vector<int > result;
+    
     for (int i = 0; i < q; i++) {
         result.push_back(xOr(a, r[i]));
     }
