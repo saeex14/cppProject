@@ -38,8 +38,8 @@ void hangman::showWord() {
 			}
 		}
 	}
-	checkGame(temp);
 	cout << "Words:\t " << temp << endl;
+	checkGame(temp);
 }
 void hangman::checkGame( string temp) {
 	if (wrongAns == 9) {
@@ -73,7 +73,7 @@ void hangman::PlayAgain() {
 	    win = false;
 	    wrongAns = 0;
 		clear;
-		return; 
+		return;  
 	}
 		exit(0);
 
